@@ -7,6 +7,9 @@ on:
 
 jobs:
   resolve-challenges:
+    strategy:
+      matrix:
+        challenges: ['01']
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,15 +17,10 @@ jobs:
         with:
           python-version: '3.11'
       - run: |
-          cd challenges
-          for challenge in `ls -1`
-          do
-            echo "--------------------------"
-            echo "---    CHALLENGE $challenge    ---"
-            echo "--------------------------"
-            pushd $challenge >/dev/null 2>&1
-            pip install -r requirements.txt >/dev/null 2>&1
-            python main.py
-            popd >/dev/null 2>&1
-            echo "----------------------------"
-            done
+          cd challenges/${{ matrix.challenges }}
+          echo "--------------------------"
+          echo "---    CHALLENGE ${{ matrix.challenges }}    ---"
+          echo "--------------------------"
+          pip install -r requirements.txt >/dev/null 2>&1
+          python main.py
+          echo "----------------------------"
