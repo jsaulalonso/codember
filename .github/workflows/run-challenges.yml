@@ -1,0 +1,23 @@
+name: Run Codember Challenges
+
+on:
+  - push
+
+jobs:
+  resolve-challenges:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - run: |
+          cd challenges
+          for challenge in `ls -1`
+          do
+            echo "--- CHALLENGE $challenge ---"
+            pushd $challenge
+            pip install -r requirements.txt
+            python main.py
+            popd
+          done
