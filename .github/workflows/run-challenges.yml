@@ -15,9 +15,9 @@ jobs:
           cd challenges
           for challenge in `ls -1`
           do
-            echo "----------------------------"
-            echo "--- CHALLENGE $challenge ---"
-            echo "----------------------------"
+            echo "--------------------------"
+            echo "---    CHALLENGE $challenge    ---"
+            echo "--------------------------"
             pushd $challenge >/dev/null 2>&1
             pip install -r requirements.txt >/dev/null 2>&1
             python main.py
