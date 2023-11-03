@@ -8,10 +8,4 @@ message = requests.get(DATA_URL).text
 
 words_list = [x.lower() for x in message.split()]
 
-output = ""
-
-for word in sorted(set(words_list), key=words_list.index):
-    output += word
-    output += str(words_list.count(word))
-
-print(output)
+print(''.join([word + str(words_list.count(word)) for word in sorted(set(words_list), key=words_list.index)]))
