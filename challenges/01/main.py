@@ -1,11 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+
+from decode_message import *
 
 import requests
 
 DATA_URL = 'https://codember.dev/data/message_01.txt'
 
-message = requests.get(DATA_URL).text
+if __name__ == '__main__':
+    message = requests.get(DATA_URL).text
 
-words_list = [x.lower() for x in message.split()]
-
-print(''.join([word + str(words_list.count(word)) for word in sorted(set(words_list), key=words_list.index)]))
+    print(decode_message(message))
