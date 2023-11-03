@@ -17,10 +17,7 @@ jobs:
           do
             echo "--- CHALLENGE $challenge ---"
             pushd $challenge
-            virtualenv venv >/dev/null 2>&1
-            source venv/bin/activate
             pip install -r requirements.txt >/dev/null 2>&1
             python main.py
-            deactivate
             popd
           done
