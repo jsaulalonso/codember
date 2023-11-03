@@ -1,7 +1,9 @@
 name: Run Codember Challenges
 
 on:
-  - push
+  push:
+    branches:
+      - 'main'
 
 jobs:
   resolve-challenges:
