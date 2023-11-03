@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from decode_message import *
+from decode_message import decode_message
 
 import unittest
 
