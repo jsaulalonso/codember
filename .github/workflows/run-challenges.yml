@@ -9,7 +9,7 @@ jobs:
   resolve-challenges:
     strategy:
       matrix:
-        challenges: ['01']
+        challenges: ['01', '02']
     runs-on: ubuntu-latest
     steps:
       - name: Get code
